@@ -38,6 +38,7 @@ dependencies:
   shared_preferences: ^2.0.0
   #toast提示
   fluttertoast: ^8.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

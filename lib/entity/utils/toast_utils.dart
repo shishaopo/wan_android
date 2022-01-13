@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:wan_android/entity/utils/screen_utils.dart';
+import 'package:wan_android/entity/ext/num_ext.dart';
 import 'package:wan_android/main.dart';
 
 /// @Description:   Toast提示工具类
@@ -24,19 +24,19 @@ class ToastUtils {
     return Container(
       decoration: BoxDecoration(
         color: const Color(0xe6eeeeee),
-        borderRadius: BorderRadiusDirectional.circular(ScreenUtils.dp(16)),
+        borderRadius: BorderRadiusDirectional.circular(16.dp()),
       ),
       padding: EdgeInsetsDirectional.only(
-        start: ScreenUtils.dp(16),
-        top: ScreenUtils.dp(12),
-        end: ScreenUtils.dp(16),
-        bottom: ScreenUtils.dp(12),
+        start: 16.dp(),
+        top: 12.dp(),
+        end: 16.dp(),
+        bottom: 12.dp(),
       ),
       child: Text(
         msg,
         style: TextStyle(
           color: const Color(0xde000000),
-          fontSize: ScreenUtils.dp(14),
+          fontSize: 14.dp(),
         ),
       ),
     );
