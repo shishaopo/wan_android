@@ -12,7 +12,7 @@ publish_to: 'none' #如果像发布到pub.dev上，需要把这一行删了
 version: 1.0.0+1
 
 environment:
-  flutter: ^2.10.1
+  flutter: ^2.10.2
   sdk: ^2.16.1
 
 # Dependencies specify other packages that your package needs in order to work.
