@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 extension NumExt on num {
   ///将[size]转化为 size * 屏幕宽度 / 375
   ///方便百分比布局的情况
-  double dp() {
+  get dp {
     return ScreenUtil().setWidth(this);
   }
 }
