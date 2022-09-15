@@ -44,7 +44,7 @@ class App extends StatelessWidget {
     );
   }
 
-  Widget _buildApp() {
+  Widget _buildApp(BuildContext context, Widget? child) {
     return MaterialApp(
       navigatorKey: _navigatorKey,
       theme: ThemeData(

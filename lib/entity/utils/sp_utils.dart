@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// @Author:        ShiShaoPo
 /// @CreateData:    2021/05/27  11:54 AM
 class SPUtils {
-  static late final _prefs = SharedPreferences.getInstance();
+  static final _prefs = SharedPreferences.getInstance();
 
   static Future<bool> setString(String key, String value) async {
     final sp = await _prefs;
@@ -17,7 +17,6 @@ class SPUtils {
   }
 
   static Future<bool> remove(String key) async {
-
     final sp = await _prefs;
     return sp.remove(key);
   }

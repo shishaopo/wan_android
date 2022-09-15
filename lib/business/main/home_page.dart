@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:wan_android/entity/utils/log_utils.dart';
+import 'package:wan_android/entity/utils/screen_utils.dart';
 
 /// @author       ShiShaoPo
 /// @time         2021/12/223:43
 /// @description
 class MyHomePage extends StatefulWidget {
-
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
@@ -12,13 +13,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,25 +20,19 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('标题'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        itemBuilder: _buildItem,
+        itemCount: 50,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+    );
+  }
+
+  Widget _buildItem(BuildContext context, int index) {
+    LogUtils.e("渲染第$index个");
+    return SizedBox(
+      width: ScreenUtils.screenWidth(),
+      height: 100,
+      child: Text("这是第$index个item"),
     );
   }
 }
