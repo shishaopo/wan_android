@@ -8,18 +8,10 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 
-void main() async {
-  var start = DateTime.now().millisecondsSinceEpoch;
-  // var aResult = requestA();
-  // var bResult = requestB();
-  var a = await requestA();
-  var b = await requestB();
-  var end = DateTime.now().millisecondsSinceEpoch;
-  if (kDebugMode) {
-    print(a);
-    print(b);
-    print(end - start);
-  }
+void main()  {
+  var a = ValueKey(1);
+  var b  =ValueKey(1);
+  print(a == b);
 }
 
 Future<String> requestA() async {
