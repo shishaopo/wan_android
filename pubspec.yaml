@@ -9,11 +9,11 @@ publish_to: 'none' #如果像发布到pub.dev上，需要把这一行删了
 # build-name和build-number都可以通过命令行修改：--build-name 和 --build-number
 # 在Android中, build-name会替换versionName，build-number会替换versionCode.
 # 在iOS中, build-name会替换CFBundleShortVersionString，build-number会替换CFBundleVersion.
-version: 1.0.0+1
+version: 1.2.1+2
 
 environment:
-  flutter: 3.3.2
-  sdk: 2.18.1
+  flutter: 3.3.8
+  sdk: 2.18.4
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions

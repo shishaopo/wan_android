@@ -1,6 +1,9 @@
-///路由工具类
-///@author ShiShaoPo
-///@since 2021/12/14 7:22 下午
-class RouterPath {
-  static const home = "home";
+/// @author       ShiShaoPo
+/// @time         2022/11/1021:43
+/// @description  路由工具类
+class RouterUtils{
+
+
+
+
 }

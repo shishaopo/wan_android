@@ -1,20 +1,22 @@
-import 'dart:async';
-
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wan_android/business/main/home_page.dart';
+import 'package:wan_android/app/main/main_page.dart';
+import 'package:wan_android/common/router_path.dart';
 import 'package:wan_android/entity/utils/log_utils.dart';
-import 'package:wan_android/entity/utils/router_utils.dart';
 
 void main() {
   //全局拦截同步错误
   FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
     LogUtils.e('出现同步错误 = ${details.exception.toString()}');
   };
   //全局拦截异步错误
-  runZonedGuarded(_init, (Object error, StackTrace stack) {
+  PlatformDispatcher.instance.onError = (Object error, StackTrace stack) {
     LogUtils.e('出现异步错误 = ${error.toString()}');
-  });
+    return false;
+  };
+  _init();
 }
 
 void _init() {
@@ -23,7 +25,7 @@ void _init() {
   //这里可以做一些初始化操作
 
   //执行程序
-  runApp(const App());
+  runApp(App());
 }
 
 class App extends StatelessWidget {
@@ -33,7 +35,7 @@ class App extends StatelessWidget {
   ///全局context
   static BuildContext get app => _navigatorKey.currentContext!;
 
-  const App({Key? key}) : super(key: key);
+  App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +45,8 @@ class App extends StatelessWidget {
       builder: _buildApp,
     );
   }
+
+  final page = <Page<dynamic>>[];
 
   Widget _buildApp(BuildContext context, Widget? child) {
     return MaterialApp(
@@ -55,10 +59,16 @@ class App extends StatelessWidget {
       ),
       //这里面注册的页面都是支持从外部跳转的页面
       routes: {
-        RouterPath.home: (_) => const MyHomePage(),
+        RouterPath.main: (_) => MainPage(),
       },
       //这是入口
-      initialRoute: RouterPath.home,
+      initialRoute: RouterPath.main,
     );
+  }
+
+  bool _popPage(Route<dynamic> route, dynamic result) {
+    page.remove(route.settings);
+    route.didPop(result);
+    return false;
   }
 }
