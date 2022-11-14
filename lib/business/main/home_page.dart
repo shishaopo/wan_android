@@ -13,18 +13,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      bottom: false,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('标题'),
-        ),
-        body: ListView.builder(
-          itemBuilder: _buildItem,
-          itemCount: 50,
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('标题'),
+      ),
+      body: ListView.builder(
+        itemBuilder: _buildItem,
+        itemCount: 50,
       ),
     );
   }
