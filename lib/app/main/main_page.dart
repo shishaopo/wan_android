@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wan_android/common/router_path.dart';
+import 'package:wan_android/entity/utils/log_utils.dart';
 
 /// @author       ShiShaoPo
 /// @time         2022/11/922:47
@@ -14,6 +15,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
+    LogUtils.e("MainPageState.build");
     // var uri = Uri.parse("uri");
     // var scheme = uri.scheme;
     // var host = uri.host;

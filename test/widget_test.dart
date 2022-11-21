@@ -6,12 +6,11 @@
 // tree, read text, and verify that the values of widget properties are correct.
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
-
-void main()  {
-  var a = ValueKey(1);
-  var b  =ValueKey(1);
-  print(a == b);
+void main() async {
+  dynamic a = 1;
+  dynamic b = "a";
+  assert(a is String);
+  var startTime = DateTime.now().millisecondsSinceEpoch;
 }
 
 Future<String> requestA() async {

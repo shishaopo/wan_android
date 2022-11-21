@@ -21,5 +21,3 @@ class SPUtils {
     return sp.remove(key);
   }
 }
-
-class SPConstant {}
