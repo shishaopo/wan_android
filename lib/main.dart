@@ -8,12 +8,14 @@ import 'package:wan_android/entity/utils/log_utils.dart';
 void main() {
   //全局拦截同步错误
   FlutterError.onError = (FlutterErrorDetails details) {
-    FlutterError.presentError(details);
-    LogUtils.e('出现同步错误 = ${details.exception.toString()}');
+    //这行是把错误交给系统处理，系统会把错误打印到控制台。我们已经自己处理了，就不需要系统打印了
+    // FlutterError.presentError(details);
+    LogUtils.e(
+        '出现同步错误 = ${details.exception.toString()} \n堆栈信息 = ${details.stack?.toString()}');
   };
-  //全局拦截异步错误
+  // 3.3.0以上支持，全局拦截异步错误
   PlatformDispatcher.instance.onError = (Object error, StackTrace stack) {
-    LogUtils.e('出现异步错误 = ${error.toString()}');
+    LogUtils.e('出现异步错误 = ${error.toString()} \n堆栈信息 = ${stack.toString()}');
     return false;
   };
   _init();
@@ -59,7 +61,7 @@ class App extends StatelessWidget {
       ),
       //这里面注册的页面都是支持从外部跳转的页面
       routes: {
-        RouterPath.main: (_) => MainPage(),
+        RouterPath.main: (_) => const MainPage(),
       },
       //这是入口
       initialRoute: RouterPath.main,

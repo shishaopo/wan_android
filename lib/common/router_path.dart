@@ -9,6 +9,6 @@ class RouterPath {
   static String second ="second";
 
   static Map<String, WidgetBuilder> routerCreator() => {
-    RouterPath.main: (_) => MainPage(),
+    RouterPath.main: (_) => const MainPage(),
   };
 }

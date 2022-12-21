@@ -7,10 +7,40 @@
 import 'dart:async';
 
 void main() async {
-  dynamic a = 1;
-  dynamic b = "a";
-  assert(a is String);
-  var startTime = DateTime.now().millisecondsSinceEpoch;
+  // var a = <int>[1, 2, 3];
+  // var b = <int>[1, 2, 3];
+  // var c = <String>["1", "2", "3"];
+  // debugPrint(a.equals(b).toString());
+  // debugPrint(a.equals(c).toString());
+  var p1 = const Person("铁锤", 1);
+  var p2 = const Person("铁锤", 2);
+  print(identical(p1, p2));
+}
+
+class Person{
+  final String name;
+  final int age;
+
+ const Person(this.name, this.age);
+}
+
+
+extension ListExt on List {
+  bool equals(List other) {
+    //判断是否为同一对象
+    if (identical(this, other)) {
+      return true;
+    }
+    if (length != other.length) {
+      return false;
+    }
+    for (var i = 0; i < length; i++) {
+      if (this[i] != other[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
 
 Future<String> requestA() async {

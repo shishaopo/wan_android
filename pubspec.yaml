@@ -12,23 +12,18 @@ publish_to: 'none' #如果像发布到pub.dev上，需要把这一行删了
 version: 1.2.1+2
 
 environment:
-  flutter: 3.3.8
-  sdk: 2.18.4
+  flutter: ^3.3.9
+  sdk: ^2.18.5
 
-# Dependencies specify other packages that your package needs in order to work.
-# To automatically upgrade your package dependencies to the latest versions
-# consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
-# the latest version available on pub.dev. To see which dependencies have newer
-# versions available, run `flutter pub outdated`.
+# 三方依赖库需要添加到这里
+# 执行flutter pub outdated检查最新版本
+# 执行flutter pub upgrade更新版本
+# 执行flutter pub get更新项目中的依赖
 dependencies:
+  # 官方依赖，每个flutter项目都必须依赖flutterSDK
   flutter:
     sdk: flutter
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  # 一些简单的图标
+  # 一些简单的iOS风格的图标
   cupertino_icons: ^1.0.0
   # 状态管理
   provider: ^6.0.0
@@ -41,15 +36,13 @@ dependencies:
   #toast提示
   fluttertoast: ^8.0.0
 
+# 这里的依赖只有开发阶段会用到，打包时会自动忽略
 dev_dependencies:
+  # 用来跑test里面的代码
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
+  # 代码检查，用于规范flutter代码
   flutter_lints: ^2.0.0
 
 # For information on the generic Dart part of this file, see the
@@ -63,11 +56,13 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
-
+    # To add assets to your application, add an assets section, like this:
+    # assets:
+    #   - images/a_dot_burr.jpeg
+    #   - images/a_dot_ham.jpeg
+  #  或者下面这种会把文件夹里的所有文件添加到依赖中去
+  assets:
+    - asset/image/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

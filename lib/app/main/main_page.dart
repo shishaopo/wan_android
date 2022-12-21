@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:wan_android/common/router_path.dart';
 import 'package:wan_android/entity/utils/log_utils.dart';
 
 /// @author       ShiShaoPo
@@ -15,7 +14,6 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    LogUtils.e("MainPageState.build");
     // var uri = Uri.parse("uri");
     // var scheme = uri.scheme;
     // var host = uri.host;
@@ -25,14 +23,42 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       body: Container(
         alignment: AlignmentDirectional.center,
-        child: MaterialButton(
-          color: Colors.blue,
-          onPressed: () {
-            Navigator.pushNamed(context, RouterPath.second);
-          },
-          child: Text("点击跳转"),
+        child: Flex(
+          direction: Axis.vertical,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            MaterialButton(
+              color: Colors.blue,
+              onPressed: () {
+                _addOne();
+              },
+              child: const Text("同步错误"),
+            ),
+            MaterialButton(
+              color: Colors.blue,
+              onPressed: () {
+                _addTwo();
+              },
+              child: const Text("异步错误"),
+            ),
+            // Image.asset("asset/image/page_error.png")
+          ],
         ),
       ),
     );
+  }
+
+  void _addOne() {
+    String? a = "a";
+    var b = a as int;
+    LogUtils.e(b);
+  }
+
+  void _addTwo() {
+    Future.delayed(const Duration(microseconds: 500), () {
+      String? a = "a";
+      var b = a as int;
+      LogUtils.e(b);
+    });
   }
 }

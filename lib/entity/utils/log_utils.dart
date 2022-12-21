@@ -21,6 +21,7 @@ class LogUtils {
     _logger.i(message);
   }
 
+  ///warning级别的打印，警告打印信息
   static void w(dynamic message) {
     _logger.w(message);
   }
