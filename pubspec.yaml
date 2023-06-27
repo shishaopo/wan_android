@@ -12,8 +12,8 @@ publish_to: 'none' #如果像发布到pub.dev上，需要把这一行删了
 version: 1.2.1+2
 
 environment:
-  flutter: ^3.3.9
-  sdk: ^2.18.5
+  flutter: ^3.10.4
+  sdk: ^3.0.3
 
 # 三方依赖库需要添加到这里
 # 执行flutter pub outdated检查最新版本
@@ -45,18 +45,13 @@ dev_dependencies:
   # 代码检查，用于规范flutter代码
   flutter_lints: ^2.0.0
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter.
+#项目配置
 flutter:
 
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
+  # 使用Material风格的icon
   uses-material-design: true
 
-    # To add assets to your application, add an assets section, like this:
+    # 添加资源，可以像这样，一个一个添加
     # assets:
     #   - images/a_dot_burr.jpeg
     #   - images/a_dot_ham.jpeg
