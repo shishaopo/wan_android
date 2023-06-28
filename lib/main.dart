@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -53,9 +51,6 @@ class App extends StatelessWidget {
   final page = <Page<dynamic>>[];
 
   Widget _buildApp(BuildContext context, Widget? child) {
-    MaterialApp.router(
-      navigatorKey: _navigatorKey,
-    )
     return MaterialApp(
       navigatorKey: _navigatorKey,
       theme: ThemeData(

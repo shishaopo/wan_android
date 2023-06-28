@@ -6,6 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+
 void main() async {
   // var a = <int>[1, 2, 3];
   // var b = <int>[1, 2, 3];
@@ -14,7 +16,9 @@ void main() async {
   // debugPrint(a.equals(c).toString());
   var p1 = const Person("铁锤", 1);
   var p2 = const Person("铁锤", 2);
-  print(identical(p1, p2));
+  if (kDebugMode) {
+    print(identical(p1, p2));
+  }
 }
 
 class Person{

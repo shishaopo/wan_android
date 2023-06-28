@@ -12,8 +12,8 @@ publish_to: 'none' #如果像发布到pub.dev上，需要把这一行删了
 version: 1.2.1+2
 
 environment:
-  flutter: ^3.10.4
-  sdk: ^3.0.3
+  flutter: ^3.10.5
+  sdk: ^3.0.5
 
 # 三方依赖库需要添加到这里
 # 执行flutter pub outdated检查最新版本
