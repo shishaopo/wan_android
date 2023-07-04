@@ -7,7 +7,7 @@ import 'package:wan_android/main.dart';
 class RouterUtils{
 
   void go(){
-    Navigator.of(App.app).pushNamed("");
+    // Navigator.of(App.app).push(route)
   }
 
   void pop(){
